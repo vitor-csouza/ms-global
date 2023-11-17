@@ -4,19 +4,22 @@ import br.com.fiap.msdoctors.model.Doctor;
 
 public class DoctorDTO {
 
-    private final Long id;
-    private final String name;
-    private final String email;
-    private final String crm;
-    private final String telefone;
-    private final String specialty;
+    private Long id;
+    private String name;
+    private String email;
+    private String crm;
+    private String phone;
+    private String specialty;
+
+    public DoctorDTO() {
+    }
 
     public DoctorDTO(Doctor entity) {
         this.id = entity.getId();
         this.name = entity.getName();
         this.email = entity.getEmail();
         this.crm = entity.getCrm();
-        this.telefone = entity.getTelefone();
+        this.phone = entity.getPhone();
         this.specialty = entity.getSpecialty().name();
     }
 
@@ -38,8 +41,8 @@ public class DoctorDTO {
         return crm;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
     public String getSpecialty() {

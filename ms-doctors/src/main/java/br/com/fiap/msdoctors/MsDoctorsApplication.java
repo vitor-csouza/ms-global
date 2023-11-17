@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurakaClient
+@EnableEurekaClient
 public class MsDoctorsApplication {
 
 	public static void main(String[] args) {
@@ -13,9 +13,3 @@ public class MsDoctorsApplication {
 	}
 
 }
-
-/*
-* 88455 - Vitor André Costa de Souza
-* 88018 - Christian Gaxiola
-* 87153 - Luan de Lima Santos
-*/

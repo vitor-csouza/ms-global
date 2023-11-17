@@ -7,4 +7,6 @@ public enum Specialty {
     DERMATOLOGIA,
     OFTALMOLOGIA,
     ENDOCRINOLOGIA,
+    GINECOLOGIA,
+    PEDIATRIA,
 }

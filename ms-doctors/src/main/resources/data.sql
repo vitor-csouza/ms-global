@@ -1,4 +1,4 @@
-INSERT INTO tb_doctor (name, email, crm, telefone, specialty) VALUES
+INSERT INTO tb_doctor (name, email, crm, phone, specialty) VALUES
       ('Hugo Silva', 'hugo.silva@example.com', '12345', '1112345678', 'ORTOPEDIA'),
       ('Sônia Santos', 'sonia.santos@example.com', '23456', '1123456789', 'NEUROLOGIA'),
       ('Marcela. Oliveira', 'marcela.oliveira@example.com', '34567', '1134567890', 'CARDIOLOGIA'),

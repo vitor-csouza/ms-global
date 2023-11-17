@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Elen Pereira",
+      "email": "elen.pereira@example.com",
+      "crm": "67890",
+      "phone": "116789-0123",
+      "specialty": "ENDOCRINOLOGIA"
+    },
+    {
+      "name": "Roberto Oliveira",
+      "email": "roberto.oliveira@example.com",
+      "crm": "78901",
+      "phone": "117890-1234",
+      "specialty": "PEDIATRIA"
+    },
+    {
+      "name": "Camila Almeida",
+      "email": "camila.almeida@example.com",
+      "crm": "89012",
+      "phone": "118901-2345",
+      "specialty": "GINECOLOGIA"
+    },
+    {
+      "name": "Lucas Silva",
+      "email": "lucas.silva@example.com",
+      "crm": "90123",
+      "phone": "119012-3456",
+      "specialty": "ORTOPEDIA"
+    },
+    {
+      "name": "Ana Santos",
+      "email": "ana.santos@example.com",
+      "crm": "01234",
+      "phone": "111234-5678",
+      "specialty": "CARDIOLOGIA"
+    }
+  ]
+  

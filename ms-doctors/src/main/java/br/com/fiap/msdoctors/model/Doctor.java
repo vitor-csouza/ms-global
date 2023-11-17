@@ -1,9 +1,9 @@
 package br.com.fiap.msdoctors.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="tb_doctor")
@@ -25,7 +25,7 @@ public class Doctor {
     private  String crm;
 
     @NotNull
-    private String telefone;
+    private String phone;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -34,12 +34,12 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String email, String crm, String telefone, Specialty specialty) {
+    public Doctor(Long id, String name, String email, String crm, String phone, Specialty specialty) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.crm = crm;
-        this.telefone = telefone;
+        this.phone = phone;
         this.specialty = specialty;
     }
 
@@ -75,12 +75,12 @@ public class Doctor {
         this.crm = crm;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Specialty getSpecialty() {
