@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap</groupId>
-	<artifactId>ms-patients</artifactId>
+	<artifactId>ms-appointment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-patients</name>
-	<description>Microserviço de Pacientes</description>
+	<name>ms-appointment</name>
+	<description>Microserviço de consulta</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
@@ -44,11 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

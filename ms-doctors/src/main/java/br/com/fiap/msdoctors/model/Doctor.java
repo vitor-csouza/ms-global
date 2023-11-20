@@ -1,5 +1,6 @@
 package br.com.fiap.msdoctors.model;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -34,7 +35,7 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String email, String crm, String phone, Specialty specialty) {
+    public Doctor(Long id, String name, String email, String crm, String telefone, Specialty specialty) {
         this.id = id;
         this.name = name;
         this.email = email;
