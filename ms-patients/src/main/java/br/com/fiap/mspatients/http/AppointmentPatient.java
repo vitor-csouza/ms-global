@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @FeignClient("ms-patients")
-public interface Appointment {
+public interface AppointmentPatient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/patients/{id)/appointment")
     List<AppointmentDTO> findAppointmentById(@PathVariable(name="id") Long id);

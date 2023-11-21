@@ -1,7 +1,7 @@
 package br.com.fiap.mspatients.service;
 
 import br.com.fiap.mspatients.dto.PatientDTO;
-import br.com.fiap.mspatients.http.Appointment;
+import br.com.fiap.mspatients.http.AppointmentPatient;
 import br.com.fiap.mspatients.model.Patient;
 import br.com.fiap.mspatients.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class PatientService {
 
 
     @Autowired
-    private Appointment appointment;
+    private AppointmentPatient appointment;
 
     @Autowired
     private PatientRepository repository;
