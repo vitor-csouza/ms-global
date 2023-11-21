@@ -23,7 +23,8 @@ public class Patient {
     @NotNull
     private String phone;
 
-    private LocalDate birthDate;
+    @NotNull
+    private String birth_date;
 
     @Positive
     private Double weight;
@@ -34,12 +35,12 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(Long id, String name, String email, String phone, LocalDate birthDate, Double weight, Double height) {
+    public Patient(Long id, String name, String email, String phone, String birthDate, Double weight, Double height) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.birthDate = birthDate;
+        this.birth_date = birthDate;
         this.weight = weight;
         this.height = height;
     }
@@ -93,11 +94,11 @@ public class Patient {
         this.phone = phone;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        return birth_date;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthDate(String birthDate) {
+        this.birth_date = birthDate;
     }
 }

@@ -1,6 +1,7 @@
 package br.com.fiap.mspatients.service;
 
 import br.com.fiap.mspatients.dto.PatientDTO;
+import br.com.fiap.mspatients.http.Appointment;
 import br.com.fiap.mspatients.model.Patient;
 import br.com.fiap.mspatients.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,14 @@ import java.util.stream.Collectors;
 @Service
 public class PatientService {
 
+
+    @Autowired
+    private Appointment appointment;
+
     @Autowired
     private PatientRepository repository;
+
+
 
     @Transactional(readOnly = true)
     public List<PatientDTO> getAll() {
@@ -25,8 +32,21 @@ public class PatientService {
     @Transactional(readOnly = true)
     public PatientDTO getById(Long id) {
         Patient patient = repository.findById(id).orElseThrow();
-        return new PatientDTO(patient);
+        //get all consultas pelo usuarioId
+        PatientDTO paciente = new PatientDTO(
+                patient.getId(),
+                patient.getName(),
+                patient.getEmail(),
+                patient.getPhone(),
+                patient.getBirthDate(),
+                patient.getWeight(),
+                patient.getHeight(),
+                appointment.findAppointmentById(patient.getId())
+        );
+        return paciente;
     }
+
+
 
     private void copyDtoToEntity(PatientDTO dto, Patient entity) {
         entity.setName(dto.getName());

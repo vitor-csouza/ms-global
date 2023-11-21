@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class AppointmentService {
 
+
     @Autowired
     private AppointmentRepository repository;
 
@@ -27,6 +28,7 @@ public class AppointmentService {
         Appointment appointment = repository.findById(id).orElseThrow();
         return new AppointmentDTO(appointment);
     }
+
 
     private void copyDtoToEntity(AppointmentDTO dto, Appointment entity) {
         entity.setPatientId(dto.getPatientId());
