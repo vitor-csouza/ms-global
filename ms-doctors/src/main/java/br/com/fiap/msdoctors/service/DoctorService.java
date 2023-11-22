@@ -43,7 +43,7 @@ public class DoctorService {
         entity.setSpecialty(Specialty.valueOf(dto.getSpecialty()));
     }
 
-    @Transactional(readOnly = true)
+    @Transactional()
     public DoctorDTO insert(DoctorDTO dto){
         Doctor doctor = new Doctor();
         copyDtoToEntity(dto, doctor);
@@ -51,7 +51,7 @@ public class DoctorService {
         return new DoctorDTO(doctor);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional()
     public DoctorDTO update(DoctorDTO dto, Long id){
         try {
             Doctor doctor = repository.getReferenceById(id);

@@ -1,0 +1,43 @@
+
+[
+    {
+        "name": "Maria Silva",
+        "email": "maria.silva@email.com",
+        "phone": "1123456789",
+        "birthDate": "1990-05-15",
+        "weight": 65.5,
+        "height": 1.65
+    },
+    {
+        "name": "João Oliveira",
+        "email": "joao.oliveira@email.com",
+        "phone": "1134567890",
+        "birthDate": "1985-08-20",
+        "weight": 75.2,
+        "height": 1.78
+    },
+    {
+        "name": "Ana Santos",
+        "email": "ana.santos@email.com",
+        "phone": "1145678901",
+        "birthDate": "1992-02-10",
+        "weight": 60.0,
+        "height": 1.7
+    },
+    {
+        "name": "Carlos Lima",
+        "email": "carlos.lima@email.com",
+        "phone": "1156789012",
+        "birthDate": "1988-11-30",
+        "weight": 80.8,
+        "height": 1.75
+    },
+    {
+        "name": "Juliana Pereira",
+        "email": "juliana.pereira@email.com",
+        "phone": "1167890123",
+        "birthDate": "1995-07-05",
+        "weight": 55.3,
+        "height": 1.6
+    }
+]

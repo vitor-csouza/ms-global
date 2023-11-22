@@ -19,7 +19,6 @@ public class PatientDTO {
 
     private Double height;
 
-    private List<AppointmentDTO> appointments = new ArrayList<>();
 
     public PatientDTO() {
     }
@@ -32,7 +31,6 @@ public class PatientDTO {
         this.birthDate = birthDate;
         this.weight = weight;
         this.height = height;
-        this.appointments = appointments;
     }
 
     public PatientDTO(Patient entity) {
@@ -73,7 +71,4 @@ public class PatientDTO {
         return height;
     }
 
-    public List<AppointmentDTO> getAppointments() {
-        return appointments;
-    }
 }
