@@ -4,10 +4,14 @@ import br.com.fiap.msdoctors.dto.DoctorDTO;
 import br.com.fiap.msdoctors.model.Doctor;
 import br.com.fiap.msdoctors.model.Specialty;
 import br.com.fiap.msdoctors.repository.DoctorRepository;
+import br.com.fiap.msdoctors.service.exception.DatabaseException;
+import br.com.fiap.msdoctors.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +29,9 @@ public class DoctorService {
 
     @Transactional(readOnly = true)
     public DoctorDTO getById(Long id){
-        Doctor doctor = repository.findById(id).orElseThrow();
+        Doctor doctor = repository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Recurso não foi encontrado")
+        );
         return new DoctorDTO(doctor);
     }
 
@@ -47,14 +53,25 @@ public class DoctorService {
 
     @Transactional(readOnly = true)
     public DoctorDTO update(DoctorDTO dto, Long id){
-        Doctor doctor = repository.getReferenceById(id);
-        copyDtoToEntity(dto, doctor);
-        doctor = repository.save(doctor);
-        return new DoctorDTO(doctor);
+        try {
+            Doctor doctor = repository.getReferenceById(id);
+            copyDtoToEntity(dto, doctor);
+            doctor = repository.save(doctor);
+            return new DoctorDTO(doctor);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException("Recurso não foi encontrado");
+        }
     }
 
     @Transactional
     public void delete(Long id){
-        repository.deleteById(id);
+        if(!repository.existsById(id)){
+            throw new ResourceNotFoundException("Recurso não foi encontrado");
+        }
+        try{
+            repository.deleteById(id);
+        } catch(DataIntegrityViolationException e){
+            throw new DatabaseException("Recurso não foi encontrado");
+        }
     }
 }

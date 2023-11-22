@@ -4,19 +4,20 @@ import br.com.fiap.mspatients.dto.PatientDTO;
 import br.com.fiap.mspatients.http.AppointmentPatient;
 import br.com.fiap.mspatients.model.Patient;
 import br.com.fiap.mspatients.repository.PatientRepository;
+import br.com.fiap.mspatients.service.exception.DatabaseException;
+import br.com.fiap.mspatients.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class PatientService {
 
-
-    @Autowired
-    private AppointmentPatient appointment;
 
     @Autowired
     private PatientRepository repository;
@@ -31,19 +32,11 @@ public class PatientService {
 
     @Transactional(readOnly = true)
     public PatientDTO getById(Long id) {
-        Patient patient = repository.findById(id).orElseThrow();
-        //get all consultas pelo usuarioId
-        PatientDTO paciente = new PatientDTO(
-                patient.getId(),
-                patient.getName(),
-                patient.getEmail(),
-                patient.getPhone(),
-                patient.getBirthDate(),
-                patient.getWeight(),
-                patient.getHeight(),
-                appointment.findAppointmentById(patient.getId())
+        Patient patient = repository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Recurso não foi encontrado")
         );
-        return paciente;
+        PatientDTO dto = new PatientDTO(patient);
+        return dto;
     }
 
 
@@ -67,14 +60,25 @@ public class PatientService {
 
     @Transactional
     public PatientDTO update(PatientDTO dto, Long id) {
-        Patient patient = repository.getReferenceById(id);
-        copyDtoToEntity(dto, patient);
-        patient = repository.save(patient);
-        return new PatientDTO(patient);
+        try{
+            Patient patient = repository.getReferenceById(id);
+            copyDtoToEntity(dto, patient);
+            patient = repository.save(patient);
+            return new PatientDTO(patient);
+        } catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException("Recurso não foi encontrado");
+        }
     }
 
     @Transactional
     public void delete(Long id) {
-        repository.deleteById(id);
+        if(!repository.existsById(id)){
+            throw new ResourceNotFoundException("Recurso não foi encontrado");
+        }
+        try{
+            repository.deleteById(id);
+        } catch(DataIntegrityViolationException e){
+            throw new DatabaseException("Recurso não foi encontrado");
+        }
     }
 }
