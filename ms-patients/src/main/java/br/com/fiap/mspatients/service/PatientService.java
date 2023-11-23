@@ -2,10 +2,13 @@ package br.com.fiap.mspatients.service;
 
 import br.com.fiap.mspatients.dto.PatientDTO;
 import br.com.fiap.mspatients.http.AppointmentPatient;
+import br.com.fiap.mspatients.http.HealthDataClient;
 import br.com.fiap.mspatients.model.Patient;
 import br.com.fiap.mspatients.repository.PatientRepository;
 import br.com.fiap.mspatients.service.exception.DatabaseException;
+import br.com.fiap.mspatients.service.exception.PatientConsentException;
 import br.com.fiap.mspatients.service.exception.ResourceNotFoundException;
+import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -13,11 +16,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class PatientService {
 
+
+    @Autowired
+    private HealthDataClient healthDataClient;
 
     @Autowired
     private PatientRepository repository;
@@ -79,6 +86,20 @@ public class PatientService {
             repository.deleteById(id);
         } catch(DataIntegrityViolationException e){
             throw new DatabaseException("Recurso não foi encontrado");
+        }
+    }
+
+    @Transactional
+    public void consentHealthData(Long id) {
+        Optional<Patient> patientOptional = repository.findById(id);
+
+        try {
+            if (!patientOptional.isPresent()) {
+                throw new ResourceNotFoundException("Paciente não encontrado");
+            }
+            healthDataClient.consentHealthData(id);
+        } catch (FeignException e) {
+            throw new PatientConsentException("Erro ao conceder permissão para dados de saúde");
         }
     }
 }

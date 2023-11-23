@@ -13,35 +13,38 @@ public class HealthData {
     private Long id;
 
     @NotNull
-    private Long appointmentId;
+    private Long doctorId;
 
     @NotNull
     private Long patientId;
 
     @Positive
-    private int consumedCalories;
+    private double consumedCalories;
 
     @Positive
-    private int waterConsumption;
+    private double hydrationLevel;
 
     @Positive
-    private int heartRate;
+    private double heartRate;
 
     @Positive
-    private float temperature;
+    private double temperature;
+
+    private boolean statusConsentData;
 
     public HealthData(){
 
     }
 
-    public HealthData(Long id, Long appointmentId, Long patientId, int consumedCalories, int waterConsumption, int heartRate, float temperature) {
+    public HealthData(Long id, Long doctorId, Long patientId, double consumedCalories, double hydrationLevel, double heartRate, double temperature, boolean statusConsentData) {
         this.id = id;
-        this.appointmentId = appointmentId;
+        this.doctorId = doctorId;
         this.patientId = patientId;
         this.consumedCalories = consumedCalories;
-        this.waterConsumption = waterConsumption;
+        this.hydrationLevel = hydrationLevel;
         this.heartRate = heartRate;
         this.temperature = temperature;
+        this.statusConsentData = statusConsentData;
     }
 
     public Long getId() {
@@ -52,12 +55,12 @@ public class HealthData {
         this.id = id;
     }
 
-    public Long getAppointmentId() {
-        return appointmentId;
+    public Long getDoctorId() {
+        return doctorId;
     }
 
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
+    public void setDoctorId(Long doctorId) {
+        this.doctorId = doctorId;
     }
 
     public Long getPatientId() {
@@ -68,35 +71,43 @@ public class HealthData {
         this.patientId = patientId;
     }
 
-    public int getConsumedCalories() {
+    public double getConsumedCalories() {
         return consumedCalories;
     }
 
-    public void setConsumedCalories(int consumedCalories) {
+    public void setConsumedCalories(double consumedCalories) {
         this.consumedCalories = consumedCalories;
     }
 
-    public int getWaterConsumption() {
-        return waterConsumption;
+    public double getHydrationLevel() {
+        return hydrationLevel;
     }
 
-    public void setWaterConsumption(int waterConsumption) {
-        this.waterConsumption = waterConsumption;
+    public void setHydrationLevel(double hydrationLevel) {
+        this.hydrationLevel = hydrationLevel;
     }
 
-    public int getHeartRate() {
+    public double getHeartRate() {
         return heartRate;
     }
 
-    public void setHeartRate(int heartRate) {
+    public void setHeartRate(double heartRate) {
         this.heartRate = heartRate;
     }
 
-    public float getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(float temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
+    }
+
+    public boolean isStatusConsentData() {
+        return statusConsentData;
+    }
+
+    public void setStatusConsentData(boolean statusConsentData) {
+        this.statusConsentData = statusConsentData;
     }
 }

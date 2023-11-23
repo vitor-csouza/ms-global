@@ -23,7 +23,7 @@ public class PatientDTO {
     public PatientDTO() {
     }
 
-    public PatientDTO(Long id, String name, String email, String phone, String birthDate, Double weight, Double height, List<AppointmentDTO> appointments) {
+    public PatientDTO(Long id, String name, String email, String phone, String birthDate, Double weight, Double height) {
         this.id = id;
         this.name = name;
         this.email = email;

@@ -50,4 +50,9 @@ public class HealthDataController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/consent")
+    public void consentHealthData(@PathVariable Long id) {
+        service.consentHealthData(id);
+    }
 }

@@ -6,56 +6,60 @@ public class HealthDataDTO {
 
     private Long id;
 
-    private Long appointmentId;
+    private Long doctorId;
 
     private Long patientId;
 
-    private int consumedCalories;
+    private double consumedCalories;
 
-    private int waterConsumption;
+    private double hydrationLevel;
 
-    private int heartRate;
+    private double heartRate;
 
-    private float temperature;
+    private double temperature;
+
+    private boolean statusConsentData;
 
     public HealthDataDTO() {
     }
 
     public HealthDataDTO(HealthData entity) {
         this.id = entity.getId();
-        this.appointmentId = entity.getAppointmentId();
         this.patientId = entity.getPatientId();
         this.consumedCalories = entity.getConsumedCalories();
-        this.waterConsumption = entity.getWaterConsumption();
+        this.hydrationLevel = entity.getHydrationLevel();
         this.heartRate = entity.getHeartRate();
         this.temperature = entity.getTemperature();
+        this.statusConsentData = entity.isStatusConsentData();
     }
 
     public Long getId() {
         return id;
     }
 
-    public Long getAppointmentId() {
-        return appointmentId;
+    public Long getDoctorId() {
+        return doctorId;
     }
 
     public Long getPatientId() {
         return patientId;
     }
 
-    public int getConsumedCalories() {
+    public double getConsumedCalories() {
         return consumedCalories;
     }
 
-    public int getWaterConsumption() {
-        return waterConsumption;
-    }
+    public double getHydrationLevel() { return hydrationLevel; }
 
-    public int getHeartRate() {
+    public double getHeartRate() {
         return heartRate;
     }
 
-    public float getTemperature() {
+    public double getTemperature() {
         return temperature;
+    }
+
+    public boolean isStatusConsentData() {
+        return statusConsentData;
     }
 }
