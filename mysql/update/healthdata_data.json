@@ -1,0 +1,10 @@
+
+    {
+      "doctorId": 2,
+      "patientId": 4,
+      "consumedCalories": 2100.2,
+      "hydrationLevel": 70.8,
+      "heartRate": 82.2,
+      "temperature": 98.2,
+      "statusConsentData": true
+    }

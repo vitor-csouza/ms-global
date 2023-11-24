@@ -1,0 +1,48 @@
+[
+    {
+      "doctorId": 1,
+      "patientId": 2,
+      "consumedCalories": 1500.5,
+      "hydrationLevel": 70.3,
+      "heartRate": 75.5,
+      "temperature": 98.6,
+      "statusConsentData": true
+    },
+    {
+      "doctorId": 2,
+      "patientId": 4,
+      "consumedCalories": 1800.2,
+      "hydrationLevel": 65.8,
+      "heartRate": 80.2,
+      "temperature": 98.2,
+      "statusConsentData": false
+    },
+    {
+      "doctorId": 3,
+      "patientId": 3,
+      "consumedCalories": 2000.8,
+      "hydrationLevel": 80.0,
+      "heartRate": 85.0,
+      "temperature": 98.9,
+      "statusConsentData": true
+    },
+    {
+      "doctorId": 4,
+      "patientId": 5,
+      "consumedCalories": 1600.7,
+      "hydrationLevel": 75.5,
+      "heartRate": 78.5,
+      "temperature": 98.4,
+      "statusConsentData": true
+    },
+    {
+      "doctorId": 5,
+      "patientId": 1,
+      "consumedCalories": 1900.3,
+      "hydrationLevel": 68.2,
+      "heartRate": 82.3,
+      "temperature": 98.7,
+      "statusConsentData": false
+    }
+  ]
+  
